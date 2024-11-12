@@ -27,6 +27,7 @@ Fn = TypeVar("Fn")
 
 
 def njit(fn: Fn, **kwargs: Any) -> Fn:
+    """Wrapper around numba's njit decorator that forces inline."""
     return _njit(inline="always", **kwargs)(fn)  # type: ignore
 
 

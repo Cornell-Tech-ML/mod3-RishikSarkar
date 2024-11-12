@@ -29,11 +29,35 @@ FakeCUDAKernel = Any
 Fn = TypeVar("Fn")
 
 
-def device_jit(fn: Fn, **kwargs) -> Fn:
+def device_jit(fn: Fn, **kwargs: Any) -> Fn:
+    """Device-specific JIT decorator for CUDA functions.
+
+    Args:
+    ----
+        fn: Function to compile
+        kwargs: Additional arguments for the JIT compiler
+
+    Returns:
+    -------
+        Compiled device function
+
+    """
     return _jit(device=True, **kwargs)(fn)  # type: ignore
 
 
-def jit(fn, **kwargs) -> FakeCUDAKernel:
+def jit(fn: Any, **kwargs: Any) -> FakeCUDAKernel:
+    """JIT decorator for CUDA functions.
+
+    Args:
+    ----
+        fn: Function to compile
+        kwargs: Additional arguments for the JIT compiler
+
+    Returns:
+    -------
+        Compiled CUDA kernel
+
+    """
     return _jit(**kwargs)(fn)  # type: ignore
 
 
@@ -67,6 +91,17 @@ class CudaOps(TensorOps):
 
     @staticmethod
     def zip(fn: Callable[[float, float], float]) -> Callable[[Tensor, Tensor], Tensor]:
+        """Apply a binary function across two tensors elementwise.
+
+        Args:
+        ----
+            fn: Binary function to apply elementwise
+
+        Returns:
+        -------
+            Function that takes two tensors and returns a new tensor
+
+        """
         cufn: Callable[[float, float], float] = device_jit(fn)
         f = tensor_zip(cufn)
 
@@ -86,6 +121,18 @@ class CudaOps(TensorOps):
     def reduce(
         fn: Callable[[float, float], float], start: float = 0.0
     ) -> Callable[[Tensor, int], Tensor]:
+        """Apply a reduction function across a tensor dimension.
+
+        Args:
+        ----
+            fn: Binary reduction function
+            start: Initial value for reduction
+
+        Returns:
+        -------
+            Function that takes a tensor and dimension and returns reduced tensor
+
+        """
         cufn: Callable[[float, float], float] = device_jit(fn)
         f = tensor_reduce(cufn)
 
@@ -106,6 +153,18 @@ class CudaOps(TensorOps):
 
     @staticmethod
     def matrix_multiply(a: Tensor, b: Tensor) -> Tensor:
+        """Compute matrix multiplication of two tensors.
+
+        Args:
+        ----
+            a: First tensor
+            b: Second tensor
+
+        Returns:
+        -------
+            Result of matrix multiplication
+
+        """
         # Make these always be a 3 dimensional multiply
         both_2d = 0
         if len(a.shape) == 2:
@@ -223,7 +282,7 @@ def tensor_zip(
 
 
 def _sum_practice(out: Storage, a: Storage, size: int) -> None:
-    """This is a practice sum kernel to prepare for reduce.
+    r"""A practice sum kernel to prepare for reduce.
 
     Given an array of length $n$ and out of size $n // \text{blockDIM}$
     it should sum up each blockDim values into an out cell.
@@ -257,6 +316,17 @@ jit_sum_practice = cuda.jit()(_sum_practice)
 
 
 def sum_practice(a: Tensor) -> TensorData:
+    """Practice CUDA sum reduction on a tensor.
+
+    Args:
+    ----
+        a: Input tensor
+
+    Returns:
+    -------
+        Reduced tensor data
+
+    """
     (size,) = a.shape
     threadsperblock = THREADS_PER_BLOCK
     blockspergrid = (size // THREADS_PER_BLOCK) + 1
@@ -307,7 +377,7 @@ def tensor_reduce(
 
 
 def _mm_practice(out: Storage, a: Storage, b: Storage, size: int) -> None:
-    """This is a practice square MM kernel to prepare for matmul.
+    """A practice square MM kernel to prepare for matmul.
 
     Given a storage `out` and two storage `a` and `b`. Where we know
     both are shape [size, size] with strides [size, 1].
@@ -346,6 +416,18 @@ jit_mm_practice = jit(_mm_practice)
 
 
 def mm_practice(a: Tensor, b: Tensor) -> TensorData:
+    """Practice CUDA matrix multiplication on tensors.
+
+    Args:
+    ----
+        a: First input tensor
+        b: Second input tensor
+
+    Returns:
+    -------
+        Result tensor data
+
+    """
     (size, _) = a.shape
     threadsperblock = (THREADS_PER_BLOCK, THREADS_PER_BLOCK)
     blockspergrid = 1
@@ -354,6 +436,7 @@ def mm_practice(a: Tensor, b: Tensor) -> TensorData:
     jit_mm_practice[blockspergrid, threadsperblock](
         out.tuple()[0], a._tensor._storage, b._tensor._storage, size
     )
+    return out
     return out
 
 
