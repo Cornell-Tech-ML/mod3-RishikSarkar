@@ -34,6 +34,11 @@ def njit(fn: Fn, **kwargs: Any) -> Fn:
     return _njit(inline="always", **kwargs)(fn)  # type: ignore
 
 
+to_index = njit(to_index)
+index_to_position = njit(index_to_position)
+broadcast_index = njit(broadcast_index)
+
+
 class FastOps(TensorOps):
     @staticmethod
     def map(fn: Callable[[float], float]) -> MapProto:
@@ -182,7 +187,7 @@ def tensor_map(
                 j = index_to_position(in_index, in_strides)
                 out[o] = fn(in_storage[j])
 
-    return njit(_map, parallel=True)
+    return njit(_map, parallel=True)  # type: ignore
 
 
 def tensor_zip(
@@ -245,7 +250,7 @@ def tensor_zip(
 
                 out[o] = fn(a_storage[a_pos], b_storage[b_pos])
 
-    return njit(_zip, parallel=True)
+    return njit(_zip, parallel=True)  # type: ignore
 
 
 def tensor_reduce(
@@ -295,7 +300,7 @@ def tensor_reduce(
                 j += step
             out[o] = acc
 
-    return njit(_reduce, parallel=True)
+    return njit(_reduce, parallel=True)  # type: ignore
 
 
 def _tensor_matrix_multiply(
