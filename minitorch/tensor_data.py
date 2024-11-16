@@ -48,10 +48,10 @@ def index_to_position(index: Index, strides: Strides) -> int:
     """
     position = 0
 
-    for i, stride in zip(index, strides):
-        position += i * stride
+    for i in range(len(index)):
+        position += index[i] * strides[i]
 
-    return int(position)
+    return position
 
 
 def to_index(ordinal: int, shape: Shape, out_index: OutIndex) -> None:
@@ -67,11 +67,12 @@ def to_index(ordinal: int, shape: Shape, out_index: OutIndex) -> None:
         out_index : return index corresponding to position.
 
     """
-    stride = strides_from_shape(list(map(int, shape)))
+    current = ordinal + 0
 
-    for i in range(len(stride)):
-        out_index[i] = ordinal // stride[i]
-        ordinal %= stride[i]
+    for i in range(len(shape) - 1, -1, -1):
+        sh = shape[i]
+        out_index[i] = int(current % sh)
+        current = current // sh
 
 
 def broadcast_index(
@@ -95,19 +96,13 @@ def broadcast_index(
         None
 
     """
-    big_shape_offset = len(big_shape) - len(shape)
-
-    for i in range(len(shape)):
-        big_i = big_shape_offset + i
-
-        if big_shape[big_i] == shape[i]:
-            out_index[i] = big_index[big_i]
-        elif shape[i] == 1:
-            out_index[i] = 0
+    for i, s in enumerate(shape):
+        if s > 1:
+            out_index[i] = big_index[i + (len(big_shape) - len(shape))]
         else:
-            raise IndexingError(
-                f"Cannot broadcast index from shape {big_shape} to shape {shape}"
-            )
+            out_index[i] = 0
+
+    return None
 
 
 def shape_broadcast(shape1: UserShape, shape2: UserShape) -> UserShape:

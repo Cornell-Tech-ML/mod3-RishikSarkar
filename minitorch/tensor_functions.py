@@ -128,14 +128,16 @@ class Sigmoid(Function):
     @staticmethod
     def forward(ctx: Context, t1: Tensor) -> Tensor:
         """Apply sigmoid function to the input tensor."""
-        ctx.save_for_backward(t1)
-        return t1.f.sigmoid_map(t1)
+        fwd = t1.f.sigmoid_map(t1)
+        ctx.save_for_backward(fwd)
+        return fwd
 
     @staticmethod
     def backward(ctx: Context, grad_output: Tensor) -> Tensor:
         """Compute the gradient for the sigmoid operation."""
-        (out,) = ctx.saved_values
-        return grad_output.f.sigmoid_back_zip(out, grad_output)
+        (out,) = ctx.saved_tensors
+        deriv = out.f.mul_zip(1 + out.f.neg_map(out), out)
+        return grad_output.f.mul_zip(deriv, grad_output)
 
 
 class ReLU(Function):

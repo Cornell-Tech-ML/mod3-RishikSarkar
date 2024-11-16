@@ -197,7 +197,10 @@ def sigmoid(a: float) -> float:
     -------
 
     """
-    return 1.0 / (1.0 + exp(-a)) if a >= 0 else exp(a) / (1.0 + exp(a))
+    if a >= 0:
+        return 1.0 / (1.0 + math.e ** (-a))
+    else:
+        return math.e ** (a) / (1.0 + math.e ** (a))
 
 
 def relu(a: float) -> float:
