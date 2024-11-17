@@ -111,7 +111,7 @@ class FastTrain:
 
             if epoch % 10 == 0 or epoch == max_epochs - 1:
                 log_fn(epoch, total_loss, correct, losses, epoch_time)
-                
+
         total_time = time.time() - training_start
         avg_time = sum(times) / len(times)
         accuracy = (correct / len(data.y)) * 100
@@ -140,7 +140,7 @@ if __name__ == "__main__":
     if args.DATASET == "xor":
         data = minitorch.datasets["Xor"](PTS)
     elif args.DATASET == "simple":
-        data = minitorch.datasets["Simple"].simple(PTS)
+        data = minitorch.datasets["Simple"](PTS)
     elif args.DATASET == "split":
         data = minitorch.datasets["Split"](PTS)
 

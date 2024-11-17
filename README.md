@@ -410,61 +410,61 @@ Parameters:
 
 Training Progress:
 ```
-Epoch    0 | Loss 6.41258 | Correct   32 | Time 26.4551s
-Epoch   10 | Loss 7.62842 | Correct   22 | Time 0.0941s
-Epoch   20 | Loss 6.82458 | Correct   22 | Time 0.0941s
-Epoch   30 | Loss 4.33809 | Correct   42 | Time 0.0930s
-Epoch   40 | Loss 5.09160 | Correct   46 | Time 0.0785s
-Epoch   50 | Loss 3.10454 | Correct   41 | Time 0.0937s
-Epoch   60 | Loss 2.63838 | Correct   44 | Time 0.0941s
-Epoch   70 | Loss 3.58128 | Correct   47 | Time 0.0941s
-Epoch   80 | Loss 3.06032 | Correct   49 | Time 0.1852s
-Epoch   90 | Loss 4.25588 | Correct   48 | Time 0.1055s
-Epoch  100 | Loss 3.29212 | Correct   38 | Time 0.0941s
-Epoch  110 | Loss 2.16834 | Correct   49 | Time 0.0876s
-Epoch  120 | Loss 1.57968 | Correct   49 | Time 0.0941s
-Epoch  130 | Loss 2.19076 | Correct   45 | Time 0.1049s
-Epoch  140 | Loss 2.43811 | Correct   49 | Time 0.0941s
-Epoch  150 | Loss 1.71128 | Correct   47 | Time 0.0785s
-Epoch  160 | Loss 1.21172 | Correct   50 | Time 0.0941s
-Epoch  170 | Loss 0.37472 | Correct   49 | Time 0.1001s
-Epoch  180 | Loss 0.46065 | Correct   50 | Time 0.0884s
-Epoch  190 | Loss 1.47038 | Correct   49 | Time 0.0941s
-Epoch  200 | Loss 1.77882 | Correct   49 | Time 0.0941s
-Epoch  210 | Loss 0.43337 | Correct   49 | Time 0.0941s
-Epoch  220 | Loss 0.41826 | Correct   49 | Time 0.0885s
-Epoch  230 | Loss 0.46321 | Correct   49 | Time 0.1097s
-Epoch  240 | Loss 0.49498 | Correct   49 | Time 0.0941s
-Epoch  250 | Loss 1.64883 | Correct   49 | Time 0.0947s
-Epoch  260 | Loss 0.79516 | Correct   48 | Time 0.0892s
-Epoch  270 | Loss 0.18389 | Correct   49 | Time 0.0941s
-Epoch  280 | Loss 0.07255 | Correct   49 | Time 0.0941s
-Epoch  290 | Loss 1.40513 | Correct   47 | Time 0.0941s
-Epoch  300 | Loss 0.38093 | Correct   49 | Time 0.0871s
-Epoch  310 | Loss 3.26727 | Correct   47 | Time 0.1001s
-Epoch  320 | Loss 0.76144 | Correct   49 | Time 0.0941s
-Epoch  330 | Loss 1.35627 | Correct   47 | Time 0.0946s
-Epoch  340 | Loss 0.21264 | Correct   49 | Time 0.0882s
-Epoch  350 | Loss 0.55407 | Correct   49 | Time 0.0992s
-Epoch  360 | Loss 0.74813 | Correct   49 | Time 0.0941s
-Epoch  370 | Loss 1.96867 | Correct   48 | Time 0.0941s
-Epoch  380 | Loss 0.63003 | Correct   49 | Time 0.0935s
-Epoch  390 | Loss 0.68243 | Correct   49 | Time 0.0941s
-Epoch  400 | Loss 0.31680 | Correct   49 | Time 0.0941s
-Epoch  410 | Loss 1.09192 | Correct   49 | Time 0.0941s
-Epoch  420 | Loss 0.13729 | Correct   49 | Time 0.0935s
-Epoch  430 | Loss 2.15317 | Correct   47 | Time 0.0942s
-Epoch  440 | Loss 0.11118 | Correct   49 | Time 0.0941s
-Epoch  450 | Loss 0.08229 | Correct   49 | Time 0.0941s
-Epoch  460 | Loss 1.33169 | Correct   49 | Time 0.0941s
-Epoch  470 | Loss 0.26228 | Correct   49 | Time 0.1037s
-Epoch  480 | Loss 0.27676 | Correct   49 | Time 0.1106s
-Epoch  490 | Loss 0.70482 | Correct   49 | Time 0.0941s
-Epoch  499 | Loss 0.10956 | Correct   50 | Time 0.0941s
+Epoch    0 | Loss 4.62409 | Correct   34 | Time 19.7474s
+Epoch   10 | Loss 7.46764 | Correct   40 | Time 0.0780s
+Epoch   20 | Loss 4.00682 | Correct   39 | Time 0.0980s
+Epoch   30 | Loss 5.70571 | Correct   40 | Time 0.1834s
+Epoch   40 | Loss 4.86282 | Correct   45 | Time 0.0774s
+Epoch   50 | Loss 3.33000 | Correct   42 | Time 0.0763s
+Epoch   60 | Loss 1.78046 | Correct   42 | Time 0.0778s
+Epoch   70 | Loss 1.96509 | Correct   49 | Time 0.0760s
+Epoch   80 | Loss 2.86069 | Correct   49 | Time 0.0751s
+Epoch   90 | Loss 1.04152 | Correct   50 | Time 0.0786s
+Epoch  100 | Loss 1.86045 | Correct   46 | Time 0.0762s
+Epoch  110 | Loss 2.05591 | Correct   49 | Time 0.0759s
+Epoch  120 | Loss 1.55844 | Correct   50 | Time 0.0758s
+Epoch  130 | Loss 0.87196 | Correct   49 | Time 0.0763s
+Epoch  140 | Loss 0.94036 | Correct   50 | Time 0.0769s
+Epoch  150 | Loss 0.70849 | Correct   49 | Time 0.0778s
+Epoch  160 | Loss 0.82492 | Correct   50 | Time 0.1226s
+Epoch  170 | Loss 0.58113 | Correct   50 | Time 0.1091s
+Epoch  180 | Loss 0.07695 | Correct   49 | Time 0.0772s
+Epoch  190 | Loss 0.77315 | Correct   50 | Time 0.0812s
+Epoch  200 | Loss 0.72960 | Correct   50 | Time 0.0791s
+Epoch  210 | Loss 0.15449 | Correct   50 | Time 0.0773s
+Epoch  220 | Loss 0.50639 | Correct   50 | Time 0.0780s
+Epoch  230 | Loss 0.60734 | Correct   50 | Time 0.0785s
+Epoch  240 | Loss 0.42044 | Correct   50 | Time 0.0779s
+Epoch  250 | Loss 0.06462 | Correct   50 | Time 0.0788s
+Epoch  260 | Loss 0.67198 | Correct   50 | Time 0.0884s
+Epoch  270 | Loss 0.01186 | Correct   50 | Time 0.0781s
+Epoch  280 | Loss 1.35441 | Correct   50 | Time 0.0840s
+Epoch  290 | Loss 0.71836 | Correct   50 | Time 0.0773s
+Epoch  300 | Loss 0.53341 | Correct   50 | Time 0.0781s
+Epoch  310 | Loss 0.28494 | Correct   50 | Time 0.0894s
+Epoch  320 | Loss 0.56080 | Correct   50 | Time 0.1887s
+Epoch  330 | Loss 0.27318 | Correct   50 | Time 0.0760s
+Epoch  340 | Loss 0.40789 | Correct   50 | Time 0.0772s
+Epoch  350 | Loss 0.67686 | Correct   50 | Time 0.0783s
+Epoch  360 | Loss 0.42108 | Correct   50 | Time 0.0778s
+Epoch  370 | Loss 0.56009 | Correct   50 | Time 0.0794s
+Epoch  380 | Loss 0.01390 | Correct   50 | Time 0.0769s
+Epoch  390 | Loss 0.39220 | Correct   50 | Time 0.0791s
+Epoch  400 | Loss 0.01260 | Correct   50 | Time 0.0802s
+Epoch  410 | Loss 0.29561 | Correct   50 | Time 0.0779s
+Epoch  420 | Loss 0.57358 | Correct   50 | Time 0.0778s
+Epoch  430 | Loss 0.52167 | Correct   50 | Time 0.0770s
+Epoch  440 | Loss 0.56615 | Correct   50 | Time 0.0772s
+Epoch  450 | Loss 0.58075 | Correct   50 | Time 0.1272s
+Epoch  460 | Loss 0.00863 | Correct   50 | Time 0.1145s
+Epoch  470 | Loss 0.60918 | Correct   50 | Time 0.0780s
+Epoch  480 | Loss 0.50905 | Correct   50 | Time 0.0785s
+Epoch  490 | Loss 0.51520 | Correct   50 | Time 0.0771s
+Epoch  499 | Loss 0.29050 | Correct   50 | Time 0.0793s
 ```
 
 Training Statistics:
-* Total Training Time: 73.37s
-* Average Epoch Time: 0.1467s
+* Total Training Time: 63.68s
+* Average Epoch Time: 0.1273s
 * Final Accuracy: 100.0% (50/50 correct)
-* Final Loss: 0.10956
+* Final Loss: 0.29050
