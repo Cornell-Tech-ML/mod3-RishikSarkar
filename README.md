@@ -397,3 +397,74 @@ Parallel structure is already optimal.
 Allocation hoisting:
 No allocation hoisting found
 None
+```
+
+## Training Results
+
+### Split Dataset - Small Model
+Parameters:
+* Hidden Layers: 100
+* Learning Rate: 0.05
+* Backend: CPU
+* Dataset Size: 50 points
+
+Training Progress:
+```
+Epoch    0 | Loss 6.41258 | Correct   32 | Time 26.4551s
+Epoch   10 | Loss 7.62842 | Correct   22 | Time 0.0941s
+Epoch   20 | Loss 6.82458 | Correct   22 | Time 0.0941s
+Epoch   30 | Loss 4.33809 | Correct   42 | Time 0.0930s
+Epoch   40 | Loss 5.09160 | Correct   46 | Time 0.0785s
+Epoch   50 | Loss 3.10454 | Correct   41 | Time 0.0937s
+Epoch   60 | Loss 2.63838 | Correct   44 | Time 0.0941s
+Epoch   70 | Loss 3.58128 | Correct   47 | Time 0.0941s
+Epoch   80 | Loss 3.06032 | Correct   49 | Time 0.1852s
+Epoch   90 | Loss 4.25588 | Correct   48 | Time 0.1055s
+Epoch  100 | Loss 3.29212 | Correct   38 | Time 0.0941s
+Epoch  110 | Loss 2.16834 | Correct   49 | Time 0.0876s
+Epoch  120 | Loss 1.57968 | Correct   49 | Time 0.0941s
+Epoch  130 | Loss 2.19076 | Correct   45 | Time 0.1049s
+Epoch  140 | Loss 2.43811 | Correct   49 | Time 0.0941s
+Epoch  150 | Loss 1.71128 | Correct   47 | Time 0.0785s
+Epoch  160 | Loss 1.21172 | Correct   50 | Time 0.0941s
+Epoch  170 | Loss 0.37472 | Correct   49 | Time 0.1001s
+Epoch  180 | Loss 0.46065 | Correct   50 | Time 0.0884s
+Epoch  190 | Loss 1.47038 | Correct   49 | Time 0.0941s
+Epoch  200 | Loss 1.77882 | Correct   49 | Time 0.0941s
+Epoch  210 | Loss 0.43337 | Correct   49 | Time 0.0941s
+Epoch  220 | Loss 0.41826 | Correct   49 | Time 0.0885s
+Epoch  230 | Loss 0.46321 | Correct   49 | Time 0.1097s
+Epoch  240 | Loss 0.49498 | Correct   49 | Time 0.0941s
+Epoch  250 | Loss 1.64883 | Correct   49 | Time 0.0947s
+Epoch  260 | Loss 0.79516 | Correct   48 | Time 0.0892s
+Epoch  270 | Loss 0.18389 | Correct   49 | Time 0.0941s
+Epoch  280 | Loss 0.07255 | Correct   49 | Time 0.0941s
+Epoch  290 | Loss 1.40513 | Correct   47 | Time 0.0941s
+Epoch  300 | Loss 0.38093 | Correct   49 | Time 0.0871s
+Epoch  310 | Loss 3.26727 | Correct   47 | Time 0.1001s
+Epoch  320 | Loss 0.76144 | Correct   49 | Time 0.0941s
+Epoch  330 | Loss 1.35627 | Correct   47 | Time 0.0946s
+Epoch  340 | Loss 0.21264 | Correct   49 | Time 0.0882s
+Epoch  350 | Loss 0.55407 | Correct   49 | Time 0.0992s
+Epoch  360 | Loss 0.74813 | Correct   49 | Time 0.0941s
+Epoch  370 | Loss 1.96867 | Correct   48 | Time 0.0941s
+Epoch  380 | Loss 0.63003 | Correct   49 | Time 0.0935s
+Epoch  390 | Loss 0.68243 | Correct   49 | Time 0.0941s
+Epoch  400 | Loss 0.31680 | Correct   49 | Time 0.0941s
+Epoch  410 | Loss 1.09192 | Correct   49 | Time 0.0941s
+Epoch  420 | Loss 0.13729 | Correct   49 | Time 0.0935s
+Epoch  430 | Loss 2.15317 | Correct   47 | Time 0.0942s
+Epoch  440 | Loss 0.11118 | Correct   49 | Time 0.0941s
+Epoch  450 | Loss 0.08229 | Correct   49 | Time 0.0941s
+Epoch  460 | Loss 1.33169 | Correct   49 | Time 0.0941s
+Epoch  470 | Loss 0.26228 | Correct   49 | Time 0.1037s
+Epoch  480 | Loss 0.27676 | Correct   49 | Time 0.1106s
+Epoch  490 | Loss 0.70482 | Correct   49 | Time 0.0941s
+Epoch  499 | Loss 0.10956 | Correct   50 | Time 0.0941s
+```
+
+Training Statistics:
+* Total Training Time: 73.37s
+* Average Epoch Time: 0.1467s
+* Final Accuracy: 100.0% (50/50 correct)
+* Final Loss: 0.10956
