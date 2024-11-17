@@ -401,6 +401,146 @@ None
 
 ## Training Results
 
+### XOR Dataset - Small Model
+Parameters:
+* Hidden Layers: 100
+* Learning Rate: 0.05
+* Backend: CPU
+* Dataset Size: 50 points
+
+Training Progress:
+```
+Epoch    0 | Loss 5.97502 | Correct   34 | Time 19.7640s
+Epoch   10 | Loss 7.04915 | Correct   43 | Time 0.0766s
+Epoch   20 | Loss 2.67970 | Correct   45 | Time 0.0880s
+Epoch   30 | Loss 3.28085 | Correct   41 | Time 0.1213s
+Epoch   40 | Loss 4.45794 | Correct   45 | Time 0.1350s
+Epoch   50 | Loss 3.99205 | Correct   43 | Time 0.0775s
+Epoch   60 | Loss 5.67755 | Correct   43 | Time 0.0784s
+Epoch   70 | Loss 3.00926 | Correct   46 | Time 0.0789s
+Epoch   80 | Loss 3.35669 | Correct   46 | Time 0.0785s
+Epoch   90 | Loss 1.92815 | Correct   43 | Time 0.0769s
+Epoch  100 | Loss 1.40904 | Correct   46 | Time 0.0751s
+Epoch  110 | Loss 4.36400 | Correct   47 | Time 0.0851s
+Epoch  120 | Loss 1.36593 | Correct   46 | Time 0.0775s
+Epoch  130 | Loss 2.29552 | Correct   46 | Time 0.0757s
+Epoch  140 | Loss 5.14656 | Correct   44 | Time 0.0760s
+Epoch  150 | Loss 1.60225 | Correct   46 | Time 0.0897s
+Epoch  160 | Loss 1.24502 | Correct   46 | Time 0.0783s
+Epoch  170 | Loss 2.46542 | Correct   46 | Time 0.0781s
+Epoch  180 | Loss 2.58880 | Correct   46 | Time 0.1369s
+Epoch  190 | Loss 2.06091 | Correct   46 | Time 0.1511s
+Epoch  200 | Loss 2.08967 | Correct   47 | Time 0.0786s
+Epoch  210 | Loss 2.30680 | Correct   47 | Time 0.0762s
+Epoch  220 | Loss 1.00663 | Correct   46 | Time 0.0781s
+Epoch  230 | Loss 2.64572 | Correct   48 | Time 0.0771s
+Epoch  240 | Loss 0.83267 | Correct   46 | Time 0.0897s
+Epoch  250 | Loss 1.23253 | Correct   46 | Time 0.0779s
+Epoch  260 | Loss 1.75260 | Correct   48 | Time 0.0773s
+Epoch  270 | Loss 0.88677 | Correct   50 | Time 0.0785s
+Epoch  280 | Loss 1.35076 | Correct   48 | Time 0.0783s
+Epoch  290 | Loss 1.27302 | Correct   48 | Time 0.0779s
+Epoch  300 | Loss 1.12339 | Correct   49 | Time 0.0773s
+Epoch  310 | Loss 1.54354 | Correct   49 | Time 0.0796s
+Epoch  320 | Loss 1.13248 | Correct   50 | Time 0.1688s
+Epoch  330 | Loss 0.77947 | Correct   47 | Time 0.1197s
+Epoch  340 | Loss 1.79479 | Correct   50 | Time 0.0782s
+Epoch  350 | Loss 0.91626 | Correct   50 | Time 0.0780s
+Epoch  360 | Loss 1.94995 | Correct   50 | Time 0.0793s
+Epoch  370 | Loss 0.15056 | Correct   50 | Time 0.0796s
+Epoch  380 | Loss 0.49022 | Correct   50 | Time 0.0779s
+Epoch  390 | Loss 0.74923 | Correct   50 | Time 0.0796s
+Epoch  400 | Loss 0.43654 | Correct   49 | Time 0.0762s
+Epoch  410 | Loss 0.38834 | Correct   50 | Time 0.0771s
+Epoch  420 | Loss 0.25350 | Correct   50 | Time 0.0858s
+Epoch  430 | Loss 0.43659 | Correct   50 | Time 0.0782s
+Epoch  440 | Loss 0.35813 | Correct   50 | Time 0.0778s
+Epoch  450 | Loss 0.22344 | Correct   50 | Time 0.0764s
+Epoch  460 | Loss 0.80293 | Correct   50 | Time 0.1192s
+Epoch  470 | Loss 0.12446 | Correct   50 | Time 0.1616s
+Epoch  480 | Loss 0.21404 | Correct   50 | Time 0.0772s
+Epoch  490 | Loss 0.45139 | Correct   50 | Time 0.0786s
+Epoch  499 | Loss 0.08523 | Correct   50 | Time 0.0797s
+```
+
+Training Statistics:
+* Total Training Time: 63.91s
+* Average Epoch Time: 0.1278s
+* Final Accuracy: 100.0% (50/50 correct)
+* Final Loss: 0.08523
+
+---
+
+### Simple Dataset - Small Model
+Parameters:
+* Hidden Layers: 100
+* Learning Rate: 0.05
+* Backend: CPU
+* Dataset Size: 50 points
+
+Training Progress:
+```
+Epoch    0 | Loss 4.45742 | Correct   42 | Time 20.6153s
+Epoch   10 | Loss 1.53997 | Correct   50 | Time 0.0792s
+Epoch   20 | Loss 0.88063 | Correct   50 | Time 0.0769s
+Epoch   30 | Loss 0.57703 | Correct   50 | Time 0.0791s
+Epoch   40 | Loss 0.55526 | Correct   50 | Time 0.0791s
+Epoch   50 | Loss 0.06133 | Correct   50 | Time 0.0772s
+Epoch   60 | Loss 0.06000 | Correct   50 | Time 0.0864s
+Epoch   70 | Loss 0.74051 | Correct   50 | Time 0.1725s
+Epoch   80 | Loss 0.38206 | Correct   50 | Time 0.0786s
+Epoch   90 | Loss 0.56463 | Correct   50 | Time 0.0761s
+Epoch  100 | Loss 0.06906 | Correct   50 | Time 0.0776s
+Epoch  110 | Loss 0.32536 | Correct   50 | Time 0.0772s
+Epoch  120 | Loss 0.25343 | Correct   50 | Time 0.0777s
+Epoch  130 | Loss 0.13292 | Correct   50 | Time 0.0768s
+Epoch  140 | Loss 0.28324 | Correct   50 | Time 0.0756s
+Epoch  150 | Loss 0.07069 | Correct   50 | Time 0.0905s
+Epoch  160 | Loss 0.02626 | Correct   50 | Time 0.0774s
+Epoch  170 | Loss 0.35083 | Correct   50 | Time 0.0765s
+Epoch  180 | Loss 0.00185 | Correct   50 | Time 0.0776s
+Epoch  190 | Loss 0.16453 | Correct   50 | Time 0.0794s
+Epoch  200 | Loss 0.08810 | Correct   50 | Time 0.1414s
+Epoch  210 | Loss 0.06900 | Correct   50 | Time 0.1505s
+Epoch  220 | Loss 0.08425 | Correct   50 | Time 0.0777s
+Epoch  230 | Loss 0.24454 | Correct   50 | Time 0.0789s
+Epoch  240 | Loss 0.16437 | Correct   50 | Time 0.0914s
+Epoch  250 | Loss 0.20540 | Correct   50 | Time 0.0765s
+Epoch  260 | Loss 0.09131 | Correct   50 | Time 0.0918s
+Epoch  270 | Loss 0.06251 | Correct   50 | Time 0.0761s
+Epoch  280 | Loss 0.12354 | Correct   50 | Time 0.0774s
+Epoch  290 | Loss 0.11067 | Correct   50 | Time 0.0776s
+Epoch  300 | Loss 0.07027 | Correct   50 | Time 0.0786s
+Epoch  310 | Loss 0.22358 | Correct   50 | Time 0.0783s
+Epoch  320 | Loss 0.06146 | Correct   50 | Time 0.0763s
+Epoch  330 | Loss 0.04547 | Correct   50 | Time 0.0775s
+Epoch  340 | Loss 0.05875 | Correct   50 | Time 0.1054s
+Epoch  350 | Loss 0.05712 | Correct   50 | Time 0.1702s
+Epoch  360 | Loss 0.11154 | Correct   50 | Time 0.0783s
+Epoch  370 | Loss 0.01622 | Correct   50 | Time 0.0779s
+Epoch  380 | Loss 0.06889 | Correct   50 | Time 0.0776s
+Epoch  390 | Loss 0.04693 | Correct   50 | Time 0.0767s
+Epoch  400 | Loss 0.18580 | Correct   50 | Time 0.0792s
+Epoch  410 | Loss 0.09635 | Correct   50 | Time 0.0787s
+Epoch  420 | Loss 0.02360 | Correct   50 | Time 0.0857s
+Epoch  430 | Loss 0.02328 | Correct   50 | Time 0.0787s
+Epoch  440 | Loss 0.00651 | Correct   50 | Time 0.0773s
+Epoch  450 | Loss 0.10023 | Correct   50 | Time 0.0804s
+Epoch  460 | Loss 0.11606 | Correct   50 | Time 0.0788s
+Epoch  470 | Loss 0.00118 | Correct   50 | Time 0.0770s
+Epoch  480 | Loss 0.09069 | Correct   50 | Time 0.0762s
+Epoch  490 | Loss 0.00010 | Correct   50 | Time 0.1171s
+Epoch  499 | Loss 0.01975 | Correct   50 | Time 0.1305s
+```
+
+Training Statistics:
+* Total Training Time: 64.97s
+* Average Epoch Time: 0.1299s
+* Final Accuracy: 100.0% (50/50 correct)
+* Final Loss: 0.01975
+
+---
+
 ### Split Dataset - Small Model
 Parameters:
 * Hidden Layers: 100
@@ -468,3 +608,5 @@ Training Statistics:
 * Average Epoch Time: 0.1273s
 * Final Accuracy: 100.0% (50/50 correct)
 * Final Loss: 0.29050
+
+---

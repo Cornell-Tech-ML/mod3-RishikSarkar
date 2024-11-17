@@ -82,7 +82,7 @@ class FastTrain:
         training_start = time.time()
         for epoch in range(max_epochs):
             epoch_start = time.time()
-            
+
             total_loss = 0.0
             c = list(zip(data.X, data.y))
             random.shuffle(c)
@@ -104,7 +104,7 @@ class FastTrain:
             out = self.model.forward(X).view(y.shape[0])
             y2 = minitorch.tensor(data.y)
             correct = int(((out.detach() > 0.5) == y2).sum()[0])
-            
+
             epoch_time = time.time() - epoch_start
             times.append(epoch_time)
             losses.append(total_loss)
