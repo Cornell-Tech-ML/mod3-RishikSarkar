@@ -399,6 +399,181 @@ No allocation hoisting found
 None
 ```
 
+---
+
+## 3.3 + 3.4 CUDA Tests
+
+### 3.3 Tests
+```console
+======================================= test session starts ========================================
+platform linux -- Python 3.12.7, pytest-8.3.2, pluggy-1.5.0
+rootdir: /content/mod3-RishikSarkar
+configfile: pyproject.toml
+plugins: hypothesis-6.54.0, env-1.1.4
+collected 117 items / 60 deselected / 57 selected                                                  
+
+tests/test_tensor_general.py .........................................................       [100%]
+
+========================================= warnings summary =========================================
+tests/test_tensor_general.py: 16 warnings
+  /usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 1 will likely result in GPU under-utilization due to low occupancy.
+    warn(NumbaPerformanceWarning(msg))
+
+tests/test_tensor_general.py: 4268 warnings
+  /usr/local/lib/python3.12/dist-packages/numba/cuda/cudadrv/devicearray.py:888: NumbaPerformanceWarning: Host array used in CUDA kernel will incur copy overhead to/from device.
+    warn(NumbaPerformanceWarning(msg))
+
+tests/test_tensor_general.py: 11 warnings
+  /usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 2 will likely result in GPU under-utilization due to low occupancy.
+    warn(NumbaPerformanceWarning(msg))
+
+tests/test_tensor_general.py::test_one_args[cuda-fn7]
+tests/test_tensor_general.py::test_two_args[cuda-fn5]
+tests/test_tensor_general.py::test_one_derivative[cuda-fn0]
+tests/test_tensor_general.py::test_one_derivative[cuda-fn0]
+tests/test_tensor_general.py::test_one_derivative[cuda-fn6]
+tests/test_tensor_general.py::test_sum_practice2
+  /usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 3 will likely result in GPU under-utilization due to low occupancy.
+    warn(NumbaPerformanceWarning(msg))
+
+tests/test_tensor_general.py::test_one_derivative[cuda-fn0]
+  /usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 6 will likely result in GPU under-utilization due to low occupancy.
+    warn(NumbaPerformanceWarning(msg))
+
+tests/test_tensor_general.py::test_one_derivative[cuda-fn0]
+  /usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 18 will likely result in GPU under-utilization due to low occupancy.
+    warn(NumbaPerformanceWarning(msg))
+
+tests/test_tensor_general.py::test_one_derivative[cuda-fn0]
+  /usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 27 will likely result in GPU under-utilization due to low occupancy.
+    warn(NumbaPerformanceWarning(msg))
+
+tests/test_tensor_general.py::test_one_derivative[cuda-fn0]
+  /usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 9 will likely result in GPU under-utilization due to low occupancy.
+    warn(NumbaPerformanceWarning(msg))
+
+tests/test_tensor_general.py::test_one_derivative[cuda-fn1]
+  /usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 4 will likely result in GPU under-utilization due to low occupancy.
+    warn(NumbaPerformanceWarning(msg))
+
+tests/test_tensor_general.py::test_one_derivative[cuda-fn3]
+  /usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 12 will likely result in GPU under-utilization due to low occupancy.
+    warn(NumbaPerformanceWarning(msg))
+
+tests/test_tensor_general.py::test_one_derivative[cuda-fn4]
+  /usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 8 will likely result in GPU under-utilization due to low occupancy.
+    warn(NumbaPerformanceWarning(msg))
+
+tests/test_tensor_general.py::test_sum_practice_other_dims
+  /usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 16 will likely result in GPU under-utilization due to low occupancy.
+    warn(NumbaPerformanceWarning(msg))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=================== 57 passed, 60 deselected, 4309 warnings in 185.52s (0:03:05) ===================
+```
+
+### 3.4 Tests  
+```console
+======================================= test session starts ========================================
+platform linux -- Python 3.12.7, pytest-8.3.2, pluggy-1.5.0
+rootdir: /content/mod3-RishikSarkar
+configfile: pyproject.toml
+plugins: hypothesis-6.54.0, env-1.1.4
+collected 117 items / 110 deselected / 7 selected                                                  
+
+tests/test_tensor_general.py .......                                                         [100%]
+
+========================================= warnings summary =========================================
+tests/test_tensor_general.py::test_mul_practice1
+tests/test_tensor_general.py::test_mul_practice3
+tests/test_tensor_general.py::test_mul_practice3
+tests/test_tensor_general.py::test_bmm[cuda]
+tests/test_tensor_general.py::test_bmm[cuda]
+tests/test_tensor_general.py::test_bmm[cuda]
+  /usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 1 will likely result in GPU under-utilization due to low occupancy.
+    warn(NumbaPerformanceWarning(msg))
+
+tests/test_tensor_general.py: 111 warnings
+  /usr/local/lib/python3.12/dist-packages/numba/cuda/cudadrv/devicearray.py:888: NumbaPerformanceWarning: Host array used in CUDA kernel will incur copy overhead to/from device.
+    warn(NumbaPerformanceWarning(msg))
+
+tests/test_tensor_general.py::test_mul_practice4
+  /usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 35 will likely result in GPU under-utilization due to low occupancy.
+    warn(NumbaPerformanceWarning(msg))
+
+tests/test_tensor_general.py::test_mul_practice4
+tests/test_tensor_general.py::test_bmm[cuda]
+tests/test_tensor_general.py::test_bmm[cuda]
+  /usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 4 will likely result in GPU under-utilization due to low occupancy.
+    warn(NumbaPerformanceWarning(msg))
+
+tests/test_tensor_general.py::test_mul_practice5
+tests/test_tensor_general.py::test_bmm[cuda]
+tests/test_tensor_general.py::test_bmm[cuda]
+  /usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 8 will likely result in GPU under-utilization due to low occupancy.
+    warn(NumbaPerformanceWarning(msg))
+
+tests/test_tensor_general.py::test_bmm[cuda]
+tests/test_tensor_general.py::test_bmm[cuda]
+tests/test_tensor_general.py::test_bmm[cuda]
+  /usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 2 will likely result in GPU under-utilization due to low occupancy.
+    warn(NumbaPerformanceWarning(msg))
+
+tests/test_tensor_general.py::test_bmm[cuda]
+tests/test_tensor_general.py::test_bmm[cuda]
+  /usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 3 will likely result in GPU under-utilization due to low occupancy.
+    warn(NumbaPerformanceWarning(msg))
+
+tests/test_tensor_general.py::test_bmm[cuda]
+  /usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 24 will likely result in GPU under-utilization due to low occupancy.
+    warn(NumbaPerformanceWarning(msg))
+
+tests/test_tensor_general.py::test_bmm[cuda]
+  /usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 16 will likely result in GPU under-utilization due to low occupancy.
+    warn(NumbaPerformanceWarning(msg))
+
+tests/test_tensor_general.py::test_bmm[cuda]
+  /usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 32 will likely result in GPU under-utilization due to low occupancy.
+    warn(NumbaPerformanceWarning(msg))
+
+tests/test_tensor_general.py::test_bmm[cuda]
+  /usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 12 will likely result in GPU under-utilization due to low occupancy.
+    warn(NumbaPerformanceWarning(msg))
+
+tests/test_tensor_general.py::test_bmm[cuda]
+  /usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 36 will likely result in GPU under-utilization due to low occupancy.
+    warn(NumbaPerformanceWarning(msg))
+
+tests/test_tensor_general.py::test_bmm[cuda]
+  /usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 18 will likely result in GPU under-utilization due to low occupancy.
+    warn(NumbaPerformanceWarning(msg))
+
+tests/test_tensor_general.py::test_bmm[cuda]
+  /usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 27 will likely result in GPU under-utilization due to low occupancy.
+    warn(NumbaPerformanceWarning(msg))
+
+tests/test_tensor_general.py::test_bmm[cuda]
+  /usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 64 will likely result in GPU under-utilization due to low occupancy.
+    warn(NumbaPerformanceWarning(msg))
+
+tests/test_tensor_general.py::test_bmm[cuda]
+  /usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 5 will likely result in GPU under-utilization due to low occupancy.
+    warn(NumbaPerformanceWarning(msg))
+
+tests/test_tensor_general.py::test_bmm[cuda]
+  /usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 6 will likely result in GPU under-utilization due to low occupancy.
+    warn(NumbaPerformanceWarning(msg))
+
+tests/test_tensor_general.py::test_bmm[cuda]
+  /usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 48 will likely result in GPU under-utilization due to low occupancy.
+    warn(NumbaPerformanceWarning(msg))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+========================= 7 passed, 110 deselected, 140 warnings in 12.31s =========================
+```
+
+---
+
 ## Training Results
 
 ### XOR Dataset - Small Model
@@ -511,26 +686,26 @@ Epoch  270 | Loss 0.06251 | Correct   50 | Time 0.0761s
 Epoch  280 | Loss 0.12354 | Correct   50 | Time 0.0774s
 Epoch  290 | Loss 0.11067 | Correct   50 | Time 0.0776s
 Epoch  300 | Loss 0.07027 | Correct   50 | Time 0.0786s
-Epoch  310 | Loss 0.22358 | Correct   50 | Time 0.0783s
-Epoch  320 | Loss 0.06146 | Correct   50 | Time 0.0763s
-Epoch  330 | Loss 0.04547 | Correct   50 | Time 0.0775s
-Epoch  340 | Loss 0.05875 | Correct   50 | Time 0.1054s
-Epoch  350 | Loss 0.05712 | Correct   50 | Time 0.1702s
-Epoch  360 | Loss 0.11154 | Correct   50 | Time 0.0783s
-Epoch  370 | Loss 0.01622 | Correct   50 | Time 0.0779s
-Epoch  380 | Loss 0.06889 | Correct   50 | Time 0.0776s
-Epoch  390 | Loss 0.04693 | Correct   50 | Time 0.0767s
-Epoch  400 | Loss 0.18580 | Correct   50 | Time 0.0792s
-Epoch  410 | Loss 0.09635 | Correct   50 | Time 0.0787s
-Epoch  420 | Loss 0.02360 | Correct   50 | Time 0.0857s
-Epoch  430 | Loss 0.02328 | Correct   50 | Time 0.0787s
-Epoch  440 | Loss 0.00651 | Correct   50 | Time 0.0773s
-Epoch  450 | Loss 0.10023 | Correct   50 | Time 0.0804s
-Epoch  460 | Loss 0.11606 | Correct   50 | Time 0.0788s
-Epoch  470 | Loss 0.00118 | Correct   50 | Time 0.0770s
-Epoch  480 | Loss 0.09069 | Correct   50 | Time 0.0762s
-Epoch  490 | Loss 0.00010 | Correct   50 | Time 0.1171s
-Epoch  499 | Loss 0.01975 | Correct   50 | Time 0.1305s
+Epoch  310 | Loss 0.22358 | Correct   50 | Time 0.0894s
+Epoch  320 | Loss 0.06146 | Correct   50 | Time 0.1887s
+Epoch  330 | Loss 0.27318 | Correct   50 | Time 0.0760s
+Epoch  340 | Loss 0.40789 | Correct   50 | Time 0.0772s
+Epoch  350 | Loss 0.67686 | Correct   50 | Time 0.0783s
+Epoch  360 | Loss 0.42108 | Correct   50 | Time 0.0778s
+Epoch  370 | Loss 0.56009 | Correct   50 | Time 0.0794s
+Epoch  380 | Loss 0.01390 | Correct   50 | Time 0.0769s
+Epoch  390 | Loss 0.39220 | Correct   50 | Time 0.0791s
+Epoch  400 | Loss 0.01260 | Correct   50 | Time 0.0802s
+Epoch  410 | Loss 0.29561 | Correct   50 | Time 0.0779s
+Epoch  420 | Loss 0.57358 | Correct   50 | Time 0.0778s
+Epoch  430 | Loss 0.52167 | Correct   50 | Time 0.0770s
+Epoch  440 | Loss 0.56615 | Correct   50 | Time 0.0772s
+Epoch  450 | Loss 0.58075 | Correct   50 | Time 0.1272s
+Epoch  460 | Loss 0.00863 | Correct   50 | Time 0.1145s
+Epoch  470 | Loss 0.60918 | Correct   50 | Time 0.0780s
+Epoch  480 | Loss 0.50905 | Correct   50 | Time 0.0785s
+Epoch  490 | Loss 0.51520 | Correct   50 | Time 0.0771s
+Epoch  499 | Loss 0.29050 | Correct   50 | Time 0.0793s
 ```
 
 Training Statistics:
