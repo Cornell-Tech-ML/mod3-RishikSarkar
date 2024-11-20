@@ -410,7 +410,7 @@ platform linux -- Python 3.12.7, pytest-8.3.2, pluggy-1.5.0
 rootdir: /content/mod3-RishikSarkar
 configfile: pyproject.toml
 plugins: hypothesis-6.54.0, env-1.1.4
-collected 117 items / 60 deselected / 57 selected                                                  
+collected 117 items / 60 deselected / 57 selected
 
 tests/test_tensor_general.py .........................................................       [100%]
 
@@ -472,14 +472,14 @@ tests/test_tensor_general.py::test_sum_practice_other_dims
 =================== 57 passed, 60 deselected, 4309 warnings in 185.52s (0:03:05) ===================
 ```
 
-### 3.4 Tests  
+### 3.4 Tests
 ```console
 ======================================= test session starts ========================================
 platform linux -- Python 3.12.7, pytest-8.3.2, pluggy-1.5.0
 rootdir: /content/mod3-RishikSarkar
 configfile: pyproject.toml
 plugins: hypothesis-6.54.0, env-1.1.4
-collected 117 items / 110 deselected / 7 selected                                                  
+collected 117 items / 110 deselected / 7 selected
 
 tests/test_tensor_general.py .......                                                         [100%]
 
@@ -572,11 +572,86 @@ tests/test_tensor_general.py::test_bmm[cuda]
 ========================= 7 passed, 110 deselected, 140 warnings in 12.31s =========================
 ```
 
----
+### 3.4 Matrix Multiplication Timing Results (using timing.py)
+```
+Running size 64
+{'fast': np.float64(0.004395484924316406), 'gpu': np.float64(0.013965765635172525)}
+Running size 128
+{'fast': np.float64(0.017716646194458008), 'gpu': np.float64(0.023818174997965496)}
+Running size 256
+{'fast': np.float64(0.10421435038248698), 'gpu': np.float64(0.06492956479390462)}
+Running size 512
+{'fast': np.float64(0.4929521083831787), 'gpu': np.float64(0.21951794624328613)}
+Running size 1024
+{'fast': np.float64(4.474050760269165), 'gpu': np.float64(0.8294498125712076)}
+
+Timing summary
+Size: 64
+    fast: 0.00440
+{'fast': np.float64(0.10421435038248698), 'gpu': np.float64(0.06492956479390462)}
+Running size 512
+{'fast': np.float64(0.4929521083831787), 'gpu': np.float64(0.21951794624328613)}
+Running size 1024
+{'fast': np.float64(4.474050760269165), 'gpu': np.float64(0.8294498125712076)}
+
+Timing summary
+Size: 64
+    fast: 0.00440
+{'fast': np.float64(0.4929521083831787), 'gpu': np.float64(0.21951794624328613)}
+Running size 1024
+{'fast': np.float64(4.474050760269165), 'gpu': np.float64(0.8294498125712076)}
+
+Timing summary
+Size: 64
+    fast: 0.00440
+{'fast': np.float64(4.474050760269165), 'gpu': np.float64(0.8294498125712076)}
+
+Timing summary
+Size: 64
+    fast: 0.00440
+
+Timing summary
+Size: 64
+    fast: 0.00440
+    gpu: 0.01397
+Size: 128
+Timing summary
+Size: 64
+    fast: 0.00440
+    gpu: 0.01397
+Size: 128
+    fast: 0.01772
+Size: 64
+    fast: 0.00440
+    gpu: 0.01397
+Size: 128
+    fast: 0.01772
+    gpu: 0.02382
+Size: 256
+    gpu: 0.01397
+Size: 128
+    fast: 0.01772
+    gpu: 0.02382
+Size: 256
+    fast: 0.10421
+    gpu: 0.02382
+Size: 256
+    fast: 0.10421
+    gpu: 0.06493
+    fast: 0.10421
+    gpu: 0.06493
+    gpu: 0.06493
+Size: 512
+    fast: 0.49295
+    gpu: 0.21952
+Size: 1024
+    fast: 4.47405
+    gpu: 0.82945
+```
 
 ## Training Results
 
-### XOR Dataset - Small Model
+### XOR Dataset - Small Model (CPU)
 Parameters:
 * Hidden Layers: 100
 * Learning Rate: 0.05
@@ -646,7 +721,7 @@ Training Statistics:
 
 ---
 
-### Simple Dataset - Small Model
+### Simple Dataset - Small Model (CPU)
 Parameters:
 * Hidden Layers: 100
 * Learning Rate: 0.05
@@ -716,7 +791,7 @@ Training Statistics:
 
 ---
 
-### Split Dataset - Small Model
+### Split Dataset - Small Model (CPU)
 Parameters:
 * Hidden Layers: 100
 * Learning Rate: 0.05
@@ -783,5 +858,75 @@ Training Statistics:
 * Average Epoch Time: 0.1273s
 * Final Accuracy: 100.0% (50/50 correct)
 * Final Loss: 0.29050
+
+---
+
+### Simple Dataset - Small Model (GPU)
+Parameters:
+* Hidden Layers: 100
+* Learning Rate: 0.05
+* Backend: GPU
+* Dataset Size: 50 points
+
+Training Progress:
+```
+Epoch    0 | Loss 5.73036 | Correct   38 | Time 5.4117s
+Epoch   10 | Loss 7.46764 | Correct   40 | Time 0.0780s
+Epoch   20 | Loss 4.00682 | Correct   39 | Time 0.0980s
+Epoch   30 | Loss 5.70571 | Correct   40 | Time 0.1834s
+Epoch   40 | Loss 4.86282 | Correct   45 | Time 0.0774s
+Epoch   50 | Loss 3.33000 | Correct   42 | Time 0.0763s
+Epoch   60 | Loss 1.78046 | Correct   42 | Time 0.0778s
+Epoch   70 | Loss 1.96509 | Correct   49 | Time 0.0760s
+Epoch   80 | Loss 2.86069 | Correct   49 | Time 0.0751s
+Epoch   90 | Loss 1.04152 | Correct   50 | Time 0.0786s
+Epoch  100 | Loss 1.86045 | Correct   46 | Time 0.0762s
+Epoch  110 | Loss 2.05591 | Correct   49 | Time 0.0759s
+Epoch  120 | Loss 1.55844 | Correct   50 | Time 0.0758s
+Epoch  130 | Loss 0.87196 | Correct   49 | Time 0.0763s
+Epoch  140 | Loss 0.94036 | Correct   50 | Time 0.0769s
+Epoch  150 | Loss 0.70849 | Correct   49 | Time 0.0778s
+Epoch  160 | Loss 0.82492 | Correct   50 | Time 0.1226s
+Epoch  170 | Loss 0.58113 | Correct   50 | Time 0.1091s
+Epoch  180 | Loss 0.07695 | Correct   49 | Time 0.0772s
+Epoch  190 | Loss 0.77315 | Correct   50 | Time 0.0812s
+Epoch  200 | Loss 0.72960 | Correct   50 | Time 0.0791s
+Epoch  210 | Loss 0.15449 | Correct   50 | Time 0.0773s
+Epoch  220 | Loss 0.50639 | Correct   50 | Time 0.0780s
+Epoch  230 | Loss 0.60734 | Correct   50 | Time 0.0785s
+Epoch  240 | Loss 0.42044 | Correct   50 | Time 0.0779s
+Epoch  250 | Loss 0.06462 | Correct   50 | Time 0.0788s
+Epoch  260 | Loss 0.67198 | Correct   50 | Time 0.0884s
+Epoch  270 | Loss 0.01186 | Correct   50 | Time 0.0781s
+Epoch  280 | Loss 1.35441 | Correct   50 | Time 0.0840s
+Epoch  290 | Loss 0.71836 | Correct   50 | Time 0.0773s
+Epoch  300 | Loss 0.53341 | Correct   50 | Time 0.0781s
+Epoch  310 | Loss 0.28494 | Correct   50 | Time 0.0894s
+Epoch  320 | Loss 0.56080 | Correct   50 | Time 0.1887s
+Epoch  330 | Loss 0.27318 | Correct   50 | Time 0.0760s
+Epoch  340 | Loss 0.40789 | Correct   50 | Time 0.0772s
+Epoch  350 | Loss 0.67686 | Correct   50 | Time 0.0783s
+Epoch  360 | Loss 0.42108 | Correct   50 | Time 0.0778s
+Epoch  370 | Loss 0.56009 | Correct   50 | Time 0.0794s
+Epoch  380 | Loss 0.01390 | Correct   50 | Time 0.0769s
+Epoch  390 | Loss 0.39220 | Correct   50 | Time 0.0791s
+Epoch  400 | Loss 0.01260 | Correct   50 | Time 0.0802s
+Epoch  410 | Loss 0.29561 | Correct   50 | Time 0.0779s
+Epoch  420 | Loss 0.57358 | Correct   50 | Time 0.0778s
+Epoch  430 | Loss 0.52167 | Correct   50 | Time 0.0770s
+Epoch  440 | Loss 0.56615 | Correct   50 | Time 0.0772s
+Epoch  450 | Loss 0.58075 | Correct   50 | Time 0.1272s
+Epoch  460 | Loss 0.00863 | Correct   50 | Time 0.1145s
+Epoch  470 | Loss 0.60918 | Correct   50 | Time 0.0780s
+Epoch  480 | Loss 0.50905 | Correct   50 | Time 0.0785s
+Epoch  490 | Loss 0.51520 | Correct   50 | Time 0.0771s
+Epoch  499 | Loss 0.29050 | Correct   50 | Time 0.0793s
+```
+
+Training Statistics:
+* Total Training Time: 637.32s
+* Average Epoch Time: 1.2746s
+* Final Accuracy: 100.0% (50/50 correct)
+* Final Loss: 0.03225
 
 ---
