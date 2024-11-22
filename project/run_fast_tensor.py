@@ -1,4 +1,5 @@
 import random
+import time
 
 import numba
 
@@ -10,8 +11,12 @@ if numba.cuda.is_available():
     GPUBackend = minitorch.TensorBackend(minitorch.CudaOps)
 
 
-def default_log_fn(epoch, total_loss, correct, losses):
-    print("Epoch ", epoch, " loss ", total_loss, "correct", correct)
+def default_log_fn(epoch, total_loss, correct, losses, epoch_time=None):
+    print(f"Epoch {epoch:4d} | Loss {total_loss:.5f} | Correct {correct:4d}", end="")
+    if epoch_time is not None:
+        print(f" | Time {epoch_time:.4f}s")
+    else:
+        print()
 
 
 def RParam(*shape, backend):
@@ -29,8 +34,9 @@ class Network(minitorch.Module):
         self.layer3 = Linear(hidden, 1, backend)
 
     def forward(self, x):
-        # TODO: Implement for Task 3.5.
-        raise NotImplementedError("Need to implement for Task 3.5")
+        h = self.layer1.forward(x).relu()
+        h = self.layer2.forward(h).relu()
+        return self.layer3.forward(h).sigmoid()
 
 
 class Linear(minitorch.Module):
@@ -43,8 +49,15 @@ class Linear(minitorch.Module):
         self.out_size = out_size
 
     def forward(self, x):
-        # TODO: Implement for Task 3.5.
-        raise NotImplementedError("Need to implement for Task 3.5")
+        if len(x.shape) == 1:
+            x = x.view(1, x.shape[0])
+        elif len(x.shape) > 2:
+            batch = x.shape[0]
+            in_size = self.weights.value.shape[0]
+            x = x.view(batch, in_size)
+
+        out = x @ self.weights.value
+        return out + self.bias.value
 
 
 class FastTrain:
@@ -64,8 +77,12 @@ class FastTrain:
         optim = minitorch.SGD(self.model.parameters(), learning_rate)
         BATCH = 10
         losses = []
+        times = []
 
+        training_start = time.time()
         for epoch in range(max_epochs):
+            epoch_start = time.time()
+
             total_loss = 0.0
             c = list(zip(data.X, data.y))
             random.shuffle(c)
@@ -75,27 +92,34 @@ class FastTrain:
                 optim.zero_grad()
                 X = minitorch.tensor(X_shuf[i : i + BATCH], backend=self.backend)
                 y = minitorch.tensor(y_shuf[i : i + BATCH], backend=self.backend)
-                # Forward
-
                 out = self.model.forward(X).view(y.shape[0])
                 prob = (out * y) + (out - 1.0) * (y - 1.0)
                 loss = -prob.log()
                 (loss / y.shape[0]).sum().view(1).backward()
-
                 total_loss = loss.sum().view(1)[0]
-
-                # Update
                 optim.step()
 
+            X = minitorch.tensor(data.X, backend=self.backend)
+            y = minitorch.tensor(data.y, backend=self.backend)
+            out = self.model.forward(X).view(y.shape[0])
+            y2 = minitorch.tensor(data.y)
+            correct = int(((out.detach() > 0.5) == y2).sum()[0])
+
+            epoch_time = time.time() - epoch_start
+            times.append(epoch_time)
             losses.append(total_loss)
-            # Logging
-            if epoch % 10 == 0 or epoch == max_epochs:
-                X = minitorch.tensor(data.X, backend=self.backend)
-                y = minitorch.tensor(data.y, backend=self.backend)
-                out = self.model.forward(X).view(y.shape[0])
-                y2 = minitorch.tensor(data.y)
-                correct = int(((out.detach() > 0.5) == y2).sum()[0])
-                log_fn(epoch, total_loss, correct, losses)
+
+            if epoch % 10 == 0 or epoch == max_epochs - 1:
+                log_fn(epoch, total_loss, correct, losses, epoch_time)
+
+        total_time = time.time() - training_start
+        avg_time = sum(times) / len(times)
+        accuracy = (correct / len(data.y)) * 100
+
+        print("\nTraining Statistics:")
+        print(f"Total training time: {total_time:.2f}s")
+        print(f"Average epoch time: {avg_time:.4f}s")
+        print(f"Final accuracy: {accuracy:.1f}% ({correct}/{len(data.y)} correct)")
 
 
 if __name__ == "__main__":
@@ -116,7 +140,7 @@ if __name__ == "__main__":
     if args.DATASET == "xor":
         data = minitorch.datasets["Xor"](PTS)
     elif args.DATASET == "simple":
-        data = minitorch.datasets["Simple"].simple(PTS)
+        data = minitorch.datasets["Simple"](PTS)
     elif args.DATASET == "split":
         data = minitorch.datasets["Split"](PTS)
 
